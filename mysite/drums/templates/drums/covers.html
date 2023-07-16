@@ -2,7 +2,23 @@
 {% load static %}
 
 {% block content %}
+<script src='{% static "drums/js/covers.js" %}'></script>
+
 <div id="covers-title" style="margin-top: 100px;font-size: 40px;text-align: center;">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Жанр</label>
+        </div>
+        <select onchange='location.href="/covers/"+event.target.value' class="custom-select" id="inputGroupSelect01">
+          <option value="all" {% if currentGenre == "all" %} selected {% endif %}> Все</option>
+    
+          {% for genre in genres %}
+          <option value="{{ genre }}" {% if currentGenre == genre %} selected {% endif %}>{{ genre }}</option>
+         
+          {% endfor %}
+        </select>
+      </div>
+    
     {% for cov in covers %}
         <h1> {{cov.genre}} </h1>
         <a> {{cov.url}} </a>

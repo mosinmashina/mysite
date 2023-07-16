@@ -55,10 +55,14 @@ def index(request):
     return render(request, 'drums/index.html')
 
 def covers(request, genre_id):
+    allCovers = Cover.objects.all()
     if (genre_id == 'all'):
-        covers = Cover.objects.all()
+        covers = allCovers
     else: covers = Cover.objects.filter(genre = genre_id)
-    return render(request, 'drums/covers.html', {'covers': covers})
+    
+    genres = list(set(map(lambda cover: cover.genre, allCovers)))
+
+    return render(request, 'drums/covers.html', {'genres': genres, 'covers': covers, 'currentGenre': genre_id})
 
 def main(request):
     return render(request, 'drums/main.html')
