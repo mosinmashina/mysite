@@ -3,4 +3,15 @@
 
 {% block content %}
 
+<div id="drummer-title" style="height: 50vh;margin-top: 100px;font-size: 40px;text-align: center;">
+{{ originalTitle }}
+{% for image in images %}
+<image src='{{ image }}' style="margin: 20px auto;display: block;height: 30vh;">
+{% endfor %}
+</div>
+
+
+<div id="drummer-content" style="white-space: pre-wrap; text-align: center">
+    {{ content }}
+</div>
 {% endblock %}
