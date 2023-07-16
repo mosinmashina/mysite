@@ -51,14 +51,15 @@ def drummer(request):
     
     context = {'originalTitle': randomDrummer.title, 'content': randomDrummer.text, 'images': images}
     return render(request, 'drums/drummer.html', context)
-    return render(request, 'drums/drummer.html')
 
 def index(request):
     return render(request, 'drums/index.html')
 
-def covers(request):
-    covers = Cover.objects.all()
-    return render(request, 'drums/covers.html')
+def covers(request, genre_id):
+    if (genre_id == 'all'):
+        covers = Cover.objects.all()
+    else: covers = Cover.objects.filter(genre = genre_id)
+    return render(request, 'drums/covers.html', {'covers': covers})
 
 def main(request):
     return render(request, 'drums/main.html')

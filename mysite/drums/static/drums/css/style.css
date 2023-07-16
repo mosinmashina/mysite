@@ -16,7 +16,7 @@ h1 strong{
 }
 h2{
 	text-transform: uppercase;
-	line-height: 20px;
+	line-height: 36px;
 	margin:  0;
 }
 h3{
@@ -336,7 +336,7 @@ img.img-circle.team-img {
 ==============================*/
 
 #tf-works .overlay{
-	
+	min-height: calc(100vh - 235px);
 }
 
 
