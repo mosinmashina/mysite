@@ -1,0 +1,15 @@
+.container {
+    margin-top: 10%;
+}
+
+.col {
+    background-color: white;
+    border: none;
+    margin-right: 50px;
+    padding: 10 px;
+}
+
+.block {
+    text-align: center;
+    list-style: none;
+}

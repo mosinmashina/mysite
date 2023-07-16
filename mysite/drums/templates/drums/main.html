@@ -1,0 +1,153 @@
+{% extends 'drums/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div id="tf-home" class="text-center">
+        <div class="overlay">
+            <div class="content">
+                <h1>Добро пожаловать на сайт <strong><span class="color">GrooveNation</span></strong></h1>
+                <p class="lead">Это проект для барабанщиков всех уровней, где можно найти много интересной и полезной информации</p>
+                <a href="#tf-about" class="fa fa-angle-down page-scroll"></a>
+            </div>
+        </div>
+    </div>
+
+    <div id="tf-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{% static 'drums/images/me.jpg' %}" width="320" height="320" class="img-responsive">
+                </div>
+                <div class="col-md-6">
+                    <div class="about-text">
+                        <div class="section-title">
+                            <h4>Мосин Данил</h4>
+                            <h2>Немного слов о проекте</h2>
+                            <hr>
+                            <div class="clearfix"></div>
+                        </div>
+                        <p class="intro">Я увлекаюсь игрой 8 месяцев, но за такой небольшой промежуток времени сильно втянулся в эту сферу,
+                            поэтому решил решил создать проект GROOVENATION.</p>
+                        <ul class="about-list">
+                            <li>
+                                <span class="fa fa-dot-circle-o"></span>
+                                <strong>Кавера</strong> - <em>подборка лучших исполнений популярных песен.</em>
+                            </li>
+                            <li>
+                                <span class="fa fa-dot-circle-o"></span>
+                                <strong>Обучающий материал</strong><em> - поможет улучшить уровень игры.</em>
+                            </li>
+                            <li>
+                                <span class="fa fa-dot-circle-o"></span>
+                                <strong>Барабанщики</strong> - <em>биография и факты из жизни.</em>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tf-team" class="text-center">
+        <div class="overlay">
+            <div class="container">
+                <div class="section-title center">
+                    <h2>Известные <strong>барабанщики</strong></h2>
+                    <div class="line">
+                        <hr>
+                    </div>
+                </div>
+
+                <div id="team" class="owl-carousel owl-theme row">
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="{% static 'drums/images/team/joi.jpg' %}" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Джои Джордисон</h3>
+                                <p>26.04.1975 — 26.07.2021</p>
+                                <p>Американский барабанщик, наиболее известный в качестве участника и одного из основателей ню-метал группы Slipknot.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="{% static 'drums/images/team/dennisChambers.jpg' %}" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Деннис Чамберс</h3>
+                                <p>9.05.1959 — Н.В</p>
+                                <p>Американский барабарщик, играющий в жанрах джаз, фьюжн и фанк. Введен в Зал славы барабанщиков в 2001 году.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="{% static 'drums/images/team/buddy.jpeg' %}" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Бадди Рич</h3>
+                                <p>30.09.1917 — 02.04.1987</p>
+                                <p>Американский джазовый барабанщик, бенд-лидер, композитор. Оказал влияние на большинство современных барабанщиков.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="{% static 'drums/images/team/johnDolm.jpg' %}" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Джон Долмаян</h3>
+                                <p>15.07.1972 — Н.В</p>
+                                <p>американский музыкант армянского происхождения, барабанщик и композитор. Более всего известен как барабанщик System of a Down.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="{% static 'drums/images/team/mikeP.jpg' %}" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Майк Портной</h3>
+                                <p>20.04.1967 — Н.В</p>
+                                <p>Американский барабанщик-виртуоз, бывший участник прог-метал-группы Dream Theater. Считается одним из лучших барабанщиков современности.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="{% static 'drums/images/team/chadSm.jpeg' %}" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Чед Смит</h3>
+                                <p>25.10.1961 — Н.В</p>
+                                <p>американский музыкант и ударник рок-группы Red Hot Chili Peppers. Группа была занесена в Зал славы рок-н-ролла в 2012 году.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="{% static 'drums/images/team/daveG.jpg' %}" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Дэйв Грол</h3>
+                                <p>14.01.1969 — Н.В</p>
+                                <p>Американский рок-музыкант и автор песен. Наиболее известен как барабанщик группы Nirvana и как гитарист-вокалист собственной группы Foo Fighters.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="{% static 'drums/images/team/dannyC.jpg' %}" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Дэнии Кэри</h3>
+                                <p>10.05.1961 — Н.В</p>
+                                <p>Американский музыкант и автор песен, наиболее известный как барабанщик метал-группы Tool. Считается одним из лучших барабанщиков современности.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
