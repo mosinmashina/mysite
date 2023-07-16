@@ -1,16 +1,15 @@
+import os
 
 from django.shortcuts import render, redirect
-
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
 from django.shortcuts import render
-
 from .models import *
 
+import googleapiclient.discovery
 import wikipediaapi
 import json
 import requests
 import random
-
 
 def education(request):
     return render(request, 'drums/lessons.html')
@@ -66,3 +65,30 @@ def main(request):
 
 def pageNotFound(request, exception):
     return HttpResponseNotFound('Who I am?')
+
+def videos(request):
+    searchParameter = request.GET['query']
+    
+    if not searchParameter: 
+        return JsonResponse({})
+    
+    # Disable OAuthlib's HTTPS verification when running locally.
+    # *DO NOT* leave this option enabled in production.
+    os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
+
+    api_service_name = "youtube"
+    api_version = "v3"
+    DEVELOPER_KEY = "AIzaSyCBYnuoNSLamm7YeCP89Uy57ZR4l8zQ1-Q"
+
+    youtube = googleapiclient.discovery.build(
+        api_service_name, api_version, developerKey = DEVELOPER_KEY)
+
+    request = youtube.search().list(
+        part="id",
+        maxResults=5,
+        q="drummer " + searchParameter,
+        type="youtube#video"
+    )
+    response = request.execute()
+    
+    return JsonResponse(response)

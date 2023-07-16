@@ -17,4 +17,8 @@
 </div>
 
 </div>
+<div id='video-cointainer' style="display:flex; flex-wrap: wrap; justify-content: center; margin: 20px;">
+     <button type="button" class="btn btn-warning btn-lg" onclick='loadYoutubeVideos("{{ originalTitle }}")'>Посмотреть видео с {{ originalTitle }}</button>
+</div>
+<script src='{% static "drums/js/youtube-videos.js" %}'></script>
 {% endblock %}
