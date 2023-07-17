@@ -4,8 +4,9 @@
 <script src='{% static "drums/js/youtube-videos.js" %}'></script>
 
 {% block content %}
+<div class="default-background">
 
-<div style="margin-top:180px; text-align: center">
+<div style="padding-top:180px; text-align: center; min-height: calc(100vh - 75px); background: rgba(0,0,0,0.8);">
     <div style="max-width:50vw; margin: 0 auto;">
         <select onchange='location.href="/covers/"+event.target.value+"/"+1+"/"' class="form-control">
             <option value="all" {% if currentGenre == "all" %} selected {% endif %}> Все</option>
@@ -19,11 +20,10 @@
 
 <div id="covers-title" style="margin-top: 20px;font-size: 40px; display: flex;justify-content: center;flex-direction: row; flex-wrap: wrap">
     {% for cov in covers %}
-        <!--<iframe width="1004" height="753" src="https://www.youtube.com/embed/ztNuvcdf22M" title="История серии The Elder Scrolls. Выпуск 2. Приближение смертной тени" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
-        <iframe style="margin: 5px" width="560" height="315" src="https://www.youtube.com/embed/_6Xa4f6Izh4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe style="margin: 5px" width="560" height="315" src="https://www.youtube.com/embed/{{cov.url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     {% endfor %}
 </div>
-<div class="buttons" style="margin-top: 15px;margin-bottom: 20px;">
+<div class="buttons" style="margin-top: 15px;padding-bottom: 20px;">
     {% for page in numberOfPages %}
         {% if page == currentPage %}
             <a href="{% url 'covers' currentGenre page %}" class="btn btn-warning" role="button">{{ page }}</a>
@@ -34,4 +34,8 @@
     {% endfor %}
     </div>
 </div>
+
+
+
+    </div>
 {% endblock %}

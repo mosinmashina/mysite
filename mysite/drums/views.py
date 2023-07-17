@@ -59,19 +59,28 @@ def covers(request, genre_id, page_id):
     if (genre_id == 'all'):
         covers = allCovers
     else: covers = Cover.objects.filter(genre = genre_id)
+
+    coversSort = list()
+
     lenCovers = len(covers)
     if (lenCovers % 2 == 1):
         lenCovers = lenCovers // 2 + 1
-    else: lenCovers = lenCovers // 2;
-    
+        if (page_id == lenCovers):
+            coversSort.append(covers[page_id*2-2])
+        else:
+            coversSort.append(covers[page_id * 2 - 2])
+            coversSort.append(covers[page_id * 2 - 1])
+    else:
+        lenCovers = lenCovers // 2;
+        coversSort.append(covers[page_id * 2 - 2])
+        coversSort.append(covers[page_id * 2 - 1])
     mass = list()
-    
     for i in range(lenCovers):
         mass.append(i+1)
     
     genres = list(set(map(lambda cover: cover.genre, allCovers)))
     
-    return render(request, 'drums/covers.html', {'genres': genres, 'covers': covers, 'currentGenre': genre_id, 'currentPage': page_id, 'numberOfPages': mass})
+    return render(request, 'drums/covers.html', {'genres': genres, 'covers': coversSort, 'currentGenre': genre_id, 'currentPage': page_id, 'numberOfPages': mass})
 
 def main(request):
     return render(request, 'drums/main.html')
